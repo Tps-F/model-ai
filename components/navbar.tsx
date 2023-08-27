@@ -86,6 +86,11 @@ export const Navbar = () => {
 				<NavbarItem className="hidden lg:flex	">{searchInput}</NavbarItem>
 				<NavbarItem className="hidden md:flex">
 					<UploadModel />
+                {/* 
+				Auth button error on deploy: 
+				Type error: 'AuthButtonServer' cannot be used as a JSX component.
+ 				Its return type 'Promise<Element>' is not a valid JSX element.
+    			Type 'Promise<Element>' is missing the following properties from type 'ReactElement<any, any>': type, props, key */}
 					<AuthButtonServer />
 					<Button
             			isExternal
