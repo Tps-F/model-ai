@@ -14,9 +14,6 @@ Database of models created with artificial intelligence.
 
 ## How to Use
 
-
-### Use the template with create-next-app
-
 ### Install dependencies
 
 ```bash
