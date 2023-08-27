@@ -11,6 +11,8 @@ ModelAI is an open-source platform dedicated to hosting artificially intelligent
 - [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
+- [Supabase](https://github.com/supabase/supabase)
+
 
 ## How to Use
 
