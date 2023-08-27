@@ -1,6 +1,6 @@
-# Next.js & NextUI Template
+# ModelAI
 
-This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
+Database of models created with artificial intelligence.
 
 ## Technologies Used
 
@@ -31,4 +31,4 @@ npm run dev
 
 ## License
 
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+Licensed under the [MIT license](https://pitt.libguides.com/openlicensing/MIT).
