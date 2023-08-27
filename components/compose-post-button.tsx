@@ -8,10 +8,11 @@ export function ComposePostButton () {
 
   return (
     <Button
-      disabled={pending}
+      isLoading={pending}
       type='submit'
+      color='primary'
       className='my-8 px-5 py-2 self-end'
-      isDisabled
+      
     >
     {pending ? 'Please wait...' : 'Send'} 
   </Button>

@@ -25,10 +25,16 @@ import {
 } from "@/components/icons";
 import { AuthButtonServer } from "./auth-button-server";
 import { UploadModel } from "./upload-model";
+import { Session } from "inspector";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { Database } from "@/app/types/database";
 
 
 
-export const Navbar = () => {
+export async function Navbar() {
+	const supabase = createServerComponentClient<Database>({ cookies });
+	const { data: { session } } = await supabase.auth.getSession();
 	const searchInput = (
 		<Input
 			aria-label="Search"
@@ -85,7 +91,7 @@ export const Navbar = () => {
 				</NavbarItem>
 				<NavbarItem className="hidden lg:flex	">{searchInput}</NavbarItem>
 				<NavbarItem className="hidden md:flex">
-					<UploadModel />
+					<UploadModel session={session}/>
                 {/* 
 				Auth button error on deploy: 
 				Type error: 'AuthButtonServer' cannot be used as a JSX component.
