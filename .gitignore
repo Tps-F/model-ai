@@ -26,6 +26,11 @@ yarn-error.log*
 
 # local env files
 psw.txt
+.env*.local
+.env
+.env.example
+.env.local
+.env.staging
 # vercel
 .vercel
 
