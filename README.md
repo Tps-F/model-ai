@@ -1,6 +1,6 @@
 # ModelAI
 
-Database of models created with artificial intelligence.
+ModelAI is an open-source platform dedicated to hosting artificially intelligent generated voices.
 
 ## Technologies Used
 
