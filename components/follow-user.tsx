@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { Card, CardHeader, CardBody, CardFooter, Avatar, Button, Spinner, Divider } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter, Avatar, Button, Spinner, Divider, Image, Tooltip } from "@nextui-org/react";
 import { Database } from '@/app/types/database';
 import { createClientComponentClient, createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { createClient, PostgrestError } from '@supabase/supabase-js';
@@ -62,15 +62,23 @@ function Follow({ userFullName }: ModelInfoProps) {
     
       return (
         <div>
-       <h1 className="text-center mt-4 text-4xl">{userFullName}</h1>
         <div className="flex justify-center items-center mx-auto my-8">
-            <Card>
-            <CardBody>
-                <p>{user.biography}</p>
-            </CardBody>
-            </Card>
+          <h1 className="text-center mt-4 text-4xl">{userFullName}</h1>
+          {user && user.role === 'admin' && (
+            <Tooltip content="This user is part of the Model AI team">
+            <Image
+              width={30}
+              height={30}
+              src="https://i.imgur.com/VBgOF85.png"
+              alt="Admin"
+              className="mx-2 mt-6" 
+            />
+            </Tooltip>
+          )}
         </div>
+        <div className="flex justify-center items-center mx-auto my-8">
         </div>
+      </div>
   );
 }
 export default Follow;

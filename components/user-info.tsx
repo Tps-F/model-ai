@@ -35,8 +35,9 @@ function Userinfo({ userFullName }: ModelInfoProps) {
       // Fetch user data based on full name
       const { data: userData, error: userError } = await supabase
         .from('users')
-        .select('avatar_url, full_name, id')
+        .select('avatar_url, full_name, id, role')
         .eq('full_name', userFullName);
+        
 
       if (userError) {
         setError(userError);

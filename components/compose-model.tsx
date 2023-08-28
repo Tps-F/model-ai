@@ -1,15 +1,26 @@
 "use client"
 
+import React, { useState } from "react";
 import { addPost } from "@/app/actions/add-post-action";
-import { Textarea, Button, User, Input } from "@nextui-org/react";
+import { Textarea, Button, User, Input, Avatar, SelectItem, Select } from "@nextui-org/react";
 import { useRef } from "react";
 import { ComposePostButton } from "./compose-post-button";
+import ModelLanguage from "./compose-language-model";
 
 export function ComposeModel({
   
 
 }) {
   const formRef = useRef<HTMLFormElement>(null);
+  const [value, setValue] = React.useState(new Set([]));
+  const [selectedLanguage, setSelectedLanguage] = useState("Spanish");
+
+  const handleAddPost = async () => {
+    const formData = new FormData();
+    formData.append("language", selectedLanguage);
+
+    await addPost(formData);
+  };
 
   return (
     <div
@@ -25,36 +36,46 @@ export function ComposeModel({
         <div className="flex flex-col m-8">
         <Input
           name="content" 
-          key="outside"
+          key="content"
           type="name"
           label="Name"
-          placeholder="Saiko (RVC V2 500 Epochs)"
-          description="Format: Name (Technology Version Number Epochs)"
+          placeholder="Saiko"
+          description="A simple name for your model"
           className="w-72 mb-8"
           isRequired
             />
         <Input
-          key="outside"
+          key="imageurl"
           type="imageurl"
           label="Image URL"
           placeholder="https://i.imgur.com/PUFDIUU.png"
-          description="We recommend a square image in good quality."
+          description="We recommend a square image in good quality"
           className="w-72 mb-8"
           isRequired
           name="image_url" 
             />
                     <Input
-          key="outside"
+          key="description"
           type="description"
           label="Description"
           placeholder="The best model that exists on the face of the earth."
-          description="We recommend a short and precise description that hooks the user into using your model."
+          description="We recommend a short and precise description that hooks the user into using your model"
           className="w-72 mb-8"
           isRequired
           name="description" 
             />
+           <Input
+          key="audio_url"
+          type="audio_url"
+          label="Audio URL"
+          placeholder="Audio URL"
+          description="We recommend a good quality audio file" 
+          className="w-72 mb-8"
+          isRequired
+          name="audio_url" 
+            />
                                 <Input
-          key="outside"
+          key="link"
           type="link"
           label="Link"
           placeholder="Model URL."
@@ -63,6 +84,31 @@ export function ComposeModel({
           isRequired
           name="model_url" 
             />
+          <Input
+          key="epochs"
+          name="epochs"
+          type="number"
+          label="Epochs"
+          placeholder="500"
+          labelPlacement="outside"
+          className="w-72 mb-8"
+          description="The number of epochs that the model will be trained for"
+        />
+        <div className="w-72 mb-8">
+        <Input
+          key="tech"
+          name="version"
+          type="text"
+          label="Tech"
+          placeholder="RVC V2"
+          labelPlacement="outside"
+          className="w-72 mb-8"
+          description="The technology of the model"
+        />
+        </div>  
+        <div className="w-72 mb-8">        
+          <ModelLanguage selectedLanguage={selectedLanguage} onLanguageChange={setSelectedLanguage} />
+        </div>
           <ComposePostButton />
         </div>
       </form>

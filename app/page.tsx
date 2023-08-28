@@ -23,7 +23,11 @@ export default async function HomePage() {
 			id,
 			user,
 			content,
+			version,
+			epochs,
+			language,
 			image_url: imageUrl,
+			created_at: created_at,
 		  } = post;
 		  const {
 			full_name: userFullName,
@@ -39,6 +43,10 @@ export default async function HomePage() {
 				imageUrl={imageUrl}
 				full_name={userFullName}
 				id={id}
+				version={version}
+				epochs={epochs}
+				language={language}
+				created_at={created_at}
 				/>
 			</Link>
 		  );

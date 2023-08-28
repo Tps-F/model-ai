@@ -20,23 +20,9 @@ export function UploadModel ({ session }: { session: Session | null }) {
         </Button>
         )
         : 
-        <Popover placement="bottom" showArrow={true}>
-          <PopoverTrigger>
-          <Button isIconOnly  color="primary" className='mr-4'>   {/* for activate button  onClick={() => router.push('/upload')}  */}
+          <Button isIconOnly  color="primary" className='mr-4' onClick={() => router.push('/upload')}>   {/* for activate button  onClick={() => router.push('/upload')}  */}
           <IconCloudUpload />
           </Button>
-          </PopoverTrigger>
-            <PopoverContent>
-              <div className="px-1 py-2">
-                <div className="text-small font-bold">Disabled</div>
-                <div className="text-tiny">The option to upload models is disabled, find out when it comes back on       
-                <Link isBlock showAnchorIcon href="discord.gg/iahispano" color="primary" size='sm' className='ml-2'>
-                Discord
-              </Link>
-              </div>
-              </div>
-            </PopoverContent>
-        </Popover>
     }
     </header>
   )
