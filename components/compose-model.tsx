@@ -6,6 +6,7 @@ import { Textarea, Button, User, Input, Avatar, SelectItem, Select } from "@next
 import { useRef } from "react";
 import { ComposePostButton } from "./compose-post-button";
 import ModelLanguage from "./compose-language-model";
+import VersionModel from "./compose-version-model";
 
 export function ComposeModel({
   
@@ -61,7 +62,6 @@ export function ComposeModel({
           placeholder="The best model that exists on the face of the earth."
           description="We recommend a short and precise description that hooks the user into using your model"
           className="w-72 mb-8"
-          isRequired
           name="description" 
             />
            <Input
@@ -71,7 +71,6 @@ export function ComposeModel({
           placeholder="Audio URL"
           description="We recommend a good quality audio file" 
           className="w-72 mb-8"
-          isRequired
           name="audio_url" 
             />
                                 <Input
@@ -90,21 +89,12 @@ export function ComposeModel({
           type="number"
           label="Epochs"
           placeholder="500"
-          labelPlacement="outside"
           className="w-72 mb-8"
           description="The number of epochs that the model will be trained for"
+          isRequired
         />
         <div className="w-72 mb-8">
-        <Input
-          key="tech"
-          name="version"
-          type="text"
-          label="Tech"
-          placeholder="RVC V2"
-          labelPlacement="outside"
-          className="w-72 mb-8"
-          description="The technology of the model"
-        />
+        <VersionModel />
         </div>  
         <div className="w-72 mb-8">        
           <ModelLanguage selectedLanguage={selectedLanguage} onLanguageChange={setSelectedLanguage} />
