@@ -12,6 +12,7 @@ export function ComposePostButton () {
       type='submit'
       color='primary'
       className='my-8 px-5 py-2 self-end'
+      isDisabled
       
     >
     {pending ? 'Please wait...' : 'Send'} 

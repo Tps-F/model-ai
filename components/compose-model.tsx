@@ -39,9 +39,29 @@ export function ComposeModel({
           label="Image URL"
           placeholder="https://i.imgur.com/PUFDIUU.png"
           description="We recommend a square image in good quality."
-          className="w-72"
+          className="w-72 mb-8"
           isRequired
           name="image_url" 
+            />
+                    <Input
+          key="outside"
+          type="description"
+          label="Description"
+          placeholder="The best model that exists on the face of the earth."
+          description="We recommend a short and precise description that hooks the user into using your model."
+          className="w-72 mb-8"
+          isRequired
+          name="description" 
+            />
+                                <Input
+          key="outside"
+          type="link"
+          label="Link"
+          placeholder="Model URL."
+          description="We recommend Google Drive or Hugginface" 
+          className="w-72 mb-8"
+          isRequired
+          name="model_url" 
             />
           <ComposePostButton />
         </div>

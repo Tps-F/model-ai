@@ -35,6 +35,7 @@ import { Database } from "@/app/types/database";
 export async function Navbar() {
 	const supabase = createServerComponentClient<Database>({ cookies });
 	const { data: { session } } = await supabase.auth.getSession();
+	
 	const searchInput = (
 		<Input
 			aria-label="Search"
@@ -141,3 +142,7 @@ export async function Navbar() {
 		</NextUINavbar>
 	);
 };
+function filterVideos(videos: any, searchText: any) {
+	throw new Error("Function not implemented.");
+}
+

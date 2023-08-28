@@ -6,6 +6,8 @@ import { Database } from "./types/database";
 import { ComposeModel } from "@/components/compose-model";
 import { Post } from "./types/posts";
 import { UploadModel } from "@/components/upload-model";
+import { Link } from "@nextui-org/link";
+
 
 export default async function HomePage() {
 	const supabase = createServerComponentClient<Database>({ cookies });
@@ -26,14 +28,19 @@ export default async function HomePage() {
 		  const {
 			full_name: userFullName,
 		  } = user;
+
+		  const modelSlug = id;
+
 		  return (
-			<ModelCard
-			  content={content}
-			  key={id}
-			  userFullName={userFullName}
-			  imageUrl={imageUrl} 
-			  full_name={userFullName}
-			/>		
+			<Link href={`/${id}`} key={id}>
+				<ModelCard
+				content={content}
+				userFullName={userFullName}
+				imageUrl={imageUrl}
+				full_name={userFullName}
+				id={id}
+				/>
+			</Link>
 		  );
 		})}
 	  </section>
