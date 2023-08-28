@@ -25,7 +25,8 @@ export default function ModelCard ({
       <CardBody className="overflow-visible py-2">
       <div className="w-100 h-100">
         <Image
-          isZoomed
+          loading="eager"
+
           alt="Card background"
           className="object-cover rounded-xl w-100 h-80"
           src={imageUrl}

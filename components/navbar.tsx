@@ -29,6 +29,7 @@ import { Session } from "inspector";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Database } from "@/app/types/database";
+import { Avatar } from "@nextui-org/react";
 
 
 
@@ -93,6 +94,7 @@ export async function Navbar() {
 				<NavbarItem className="hidden lg:flex	">{searchInput}</NavbarItem>
 				<NavbarItem className="hidden md:flex">
 					<UploadModel session={session}/>
+
                 {/* 
 				Auth button error on deploy: 
 				Type error: 'AuthButtonServer' cannot be used as a JSX component.

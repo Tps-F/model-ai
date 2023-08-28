@@ -6,6 +6,7 @@ import { cookies } from 'next/headers';
 import { useEffect, useState } from 'react';
 import { AiOutlineCloudDownload } from "react-icons/ai";
 import { Button, Card, CardBody, CardFooter, CardHeader, Divider, Image, Link, Spacer, Spinner, User } from '@nextui-org/react';
+import { title } from './primitives';
 
 const supabase = createClientComponentClient<Database>()
 
@@ -44,7 +45,7 @@ function Modelinfo({ id }: ModelInfoProps) {
 
       const { data: userData, error: userError } = await supabase
         .from('users')
-        .select('avatar_url, full_name')
+        .select('avatar_url, full_name, id')
         .eq('id', data[0]?.user_id);
 
       if (userError) {
@@ -59,7 +60,7 @@ function Modelinfo({ id }: ModelInfoProps) {
   }, [id]);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div className="flex items-center justify-center"><h1 className={title()}>That model does not exist</h1></div>;
   }
 
   if (!data) {
@@ -89,11 +90,16 @@ function Modelinfo({ id }: ModelInfoProps) {
         <Divider/>
         <CardFooter>
         <User   
-            name={user?.full_name || "Anonymous"} 
-            avatarProps={{
-              src: user?.avatar_url
-            }}
-          />
+           name={<span style={{ fontSize: '18px' }}>{user?.full_name}</span>}
+          description={(
+            <Link href={`/users/${user?.full_name}`} size="sm" isExternal>
+              @{user?.full_name} 
+            </Link>
+          )}
+          avatarProps={{
+            src: user?.avatar_url
+          }}
+        />
         </CardFooter>
       </Card>
       <div className="flex flex-col flex-1 justify-end">
