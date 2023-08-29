@@ -40,19 +40,22 @@ export default function ModelCard({
 
   console.log(content, language, epochs, version);
   return (
-    <div className="py-4">
+    <div className="py-4" >
       <div className="overflow-visible py-2">
-        <div className="w-100 h-100 relative">
+        <div className="w-100 h-120 relative object-fit">
           <Image
             loading="eager"
             alt="Card background"
-            className="object-cover w-100 h-80"
+            className="object-cover w-100 h-80 max-w-full max-h-full  "
             src={imageUrl}
             isBlurred
             shadow="lg"
             onLoad={toggleLoad}   
             isZoomed
+            radius="md"
+            
           />
+           <p className="font-bold text-white">{content}</p>
           <div className="absolute top-0 left-0 m-2 z-20 flex">
           {version !== "Unknown" && (
               <div
@@ -92,7 +95,7 @@ export default function ModelCard({
           </div>
           <div className="absolute bottom-0 right-0 mb-1 flex flex-row items-end z-10">
           {language === "English" && (
-            <div className="w-10 h-7 mr-2" style={{
+            <div className="w-10 h-7 mb-6 mr-2" style={{
               backgroundColor: "rgba(0, 0, 0, 0.80)",
               borderRadius: "4px",
               display: "flex",        // 
@@ -107,7 +110,7 @@ export default function ModelCard({
             </div>
           )}
           {language === "Spanish" && (
-            <div className="w-10 h-7 mr-2" style={{
+            <div className="w-10 h-7 mb-6 mr-2" style={{
               backgroundColor: "rgba(0, 0, 0, 0.80)",
               borderRadius: "4px",
               display: "flex",        
@@ -122,7 +125,7 @@ export default function ModelCard({
             </div>
           )}
           {language === "Other" && (
-            <div className="w-10 h-7 mr-2" style={{
+            <div className="w-10 h-7 mb-6 mr-2" style={{
               backgroundColor: "rgba(0, 0, 0, 0.80)",
               borderRadius: "4px",
               display: "flex",        

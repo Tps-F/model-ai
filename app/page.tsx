@@ -17,7 +17,7 @@ export default async function HomePage() {
 	  .select('*, user:users(*)');
   
 	return (
-	  <section className="grid grid-cols-1 md:grid-cols-4 gap-4 py-8 md:py-10">
+	  <section className="grid grid-cols-2 md:grid-cols-5 gap-5 py-8 md:py-10">
 		{posts?.map((post: any) => { 
 		  const {
 			id,
