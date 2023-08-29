@@ -1,11 +1,17 @@
-"use client"
-import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
+"use client";
+import {
+  Avatar,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+} from "@nextui-org/react";
 import { ThemeSwitch } from "./theme-switch";
 
 export default function NavbarAvatar({
   id,
   userFullName,
-  avatar_url
+  avatar_url,
 }: {
   id: string;
   avatar_url: string;
@@ -21,15 +27,21 @@ export default function NavbarAvatar({
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Avatar src={avatar_url} 
-        isBordered
-        color="primary"
-        radius="sm"
-        className="mr-4" />
+        <Avatar
+          src={avatar_url}
+          isBordered
+          color="primary"
+          radius="sm"
+          className="mr-4"
+        />
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        <DropdownItem key="new" onClick={handleProfileClick}>Profile</DropdownItem>
-        <DropdownItem key="copy" onClick={handleProfileClick1}>Discord</DropdownItem>
+        <DropdownItem key="new" onClick={handleProfileClick}>
+          Profile
+        </DropdownItem>
+        <DropdownItem key="copy" onClick={handleProfileClick1}>
+          Discord
+        </DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );

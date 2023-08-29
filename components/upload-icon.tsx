@@ -1,4 +1,3 @@
-
 import * as React from "react";
 
 function IconCloudUpload(props: React.SVGProps<SVGSVGElement>) {

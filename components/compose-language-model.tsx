@@ -6,7 +6,10 @@ interface ModelLanguageProps {
   onLanguageChange: (language: string) => void;
 }
 
-const ModelLanguage: React.FC<ModelLanguageProps> = ({ selectedLanguage, onLanguageChange }) => {
+const ModelLanguage: React.FC<ModelLanguageProps> = ({
+  selectedLanguage,
+  onLanguageChange,
+}) => {
   return (
     <div className="flex flex-col gap-3">
       <RadioGroup

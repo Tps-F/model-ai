@@ -84,16 +84,16 @@ export default function ModelAudio(props: AudioProps) {
               </Button>
             </div>
             <div>
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.01"
-                  value={volume}
-                  onChange={handleVolumeChange}
-                  className="transform -rotate-90 absolute inset-y-0 right-0 w-16"
-                />
-              </div>
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value={volume}
+                onChange={handleVolumeChange}
+                className="transform -rotate-90 absolute inset-y-0 right-0 w-16"
+              />
+            </div>
           </div>
         </div>
       </CardBody>

@@ -1,46 +1,41 @@
-'use client'
+"use client";
 
-import { type Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import { useRouter } from 'next/navigation'
-import { Button } from '@nextui-org/button'
+import {
+  type Session,
+  createClientComponentClient,
+} from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
+import { Button } from "@nextui-org/button";
 
-export function AuthButton ({ session }: { session: Session | null }) {
-  const supabase = createClientComponentClient()
-  const router = useRouter()
+export function AuthButton({ session }: { session: Session | null }) {
+  const supabase = createClientComponentClient();
+  const router = useRouter();
 
   const handleSignIn = async () => {
     await supabase.auth.signInWithOAuth({
-      provider: 'discord',
+      provider: "discord",
       options: {
-        redirectTo: 'http://localhost:3000/auth/callback'
-      }
-    })
-  }
+        redirectTo: "http://localhost:3000/auth/callback",
+      },
+    });
+  };
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut()
-    router.refresh()
-  }
+    await supabase.auth.signOut();
+    router.refresh();
+  };
 
   return (
-        <header className="mr-4">
-        {
-        session === null
-              ? (
+    <header className="mr-4">
+      {session === null ? (
         <Button color="primary" variant="shadow" onClick={handleSignIn}>
-        Login
+          Login
         </Button>
-        )
-        : <Button color="danger" variant="bordered" onClick={handleSignOut}>
-        Logout
+      ) : (
+        <Button color="danger" variant="bordered" onClick={handleSignOut}>
+          Logout
         </Button>
-    }
+      )}
     </header>
-  )
+  );
 }
-
-
-
-
-
-
