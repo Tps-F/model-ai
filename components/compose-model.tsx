@@ -93,6 +93,15 @@ export function ComposeModel({
           description="The number of epochs that the model will be trained for"
           isRequired
         />
+          <Input
+          key="tag"
+          name="tag"
+          type="tag"
+          label="Tag"
+          placeholder="Artist"
+          className="w-72 mb-8"
+          description="Summarize with one word your model, that will be the tag"
+        />
         <div className="w-72 mb-8">
         <VersionModel />
         </div>  
