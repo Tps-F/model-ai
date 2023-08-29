@@ -1,4 +1,6 @@
 # ModelAI
+ModelAI is an open-source platform dedicated to hosting artificially intelligent generated voices.
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -6,7 +8,7 @@
 [![Apache License 2.0][license-shield]][license-url]
 [![Discord][discord-shield]][discord-url]
 
-ModelAI is an open-source platform dedicated to hosting artificially intelligent generated voices.
+
 
 ## How to Use
 ### Install dependencies
