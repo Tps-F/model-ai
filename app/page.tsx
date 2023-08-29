@@ -15,9 +15,10 @@ export default async function HomePage() {
 	const { data: posts } = await supabase
 	  .from('models')
 	  .select('*, user:users(*)');
+	  
   
 	return (
-	  <section className="grid grid-cols-2 md:grid-cols-5 gap-5 py-8 md:py-10">
+	  <section className="grid grid-cols-1 md:grid-cols-4 gap-4 py-8 md:py-10">
 		{posts?.map((post: any) => { 
 		  const {
 			id,
@@ -32,6 +33,7 @@ export default async function HomePage() {
 		  } = post;
 		  const {
 			full_name: userFullName,
+			avatar_url: avatarUrl,
 		  } = user;
 
 		  const modelSlug = id;
@@ -49,6 +51,7 @@ export default async function HomePage() {
 				language={language}
 				created_at={created_at}
 				tag={tag}
+				avatar_url={avatarUrl}
 				/>
 			</Link>
 		  );

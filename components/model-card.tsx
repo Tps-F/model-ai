@@ -1,7 +1,10 @@
 "use client"
 
-import { Image } from "@nextui-org/react";
-import React from "react";
+import { Box, Title, Image, Badge, Text } from '@mantine/core';
+import { Avatar } from '@nextui-org/react';
+import { Content } from 'next/font/google';
+import router from 'next/router';
+import React, { useState } from "react";
 
 export default function ModelCard({
   userFullName,
@@ -13,7 +16,8 @@ export default function ModelCard({
   epochs,
   version,
   created_at,
-  tag
+  tag,
+  avatar_url
 }: {
   userFullName: string;
   imageUrl: string;
@@ -25,6 +29,7 @@ export default function ModelCard({
   version: string;
   created_at: string;
   tag: string
+  avatar_url: string;
 }) {
   const formattedDate = new Date(created_at).toLocaleString("en-US", {
     year: "numeric",
@@ -36,113 +41,103 @@ export default function ModelCard({
   const toggleLoad = () => {
     setIsLoaded(!isLoaded);
   };
+  const truncateTitle = (text: string, maxWords: number) => {
+    const words = text.split(" ");
+    if (words.length > maxWords) {
+      return words.slice(0, maxWords).join(" ") + "...";
+    }
+    return text;
+  };
 
+  
 
   console.log(content, language, epochs, version);
   return (
+    <Box>
     <div className="py-4" >
       <div className="overflow-visible py-2">
         <div className="w-100 h-120 relative object-fit">
+          <div className="relative">
           <Image
-            loading="eager"
-            alt="Card background"
-            className="object-cover w-100 h-80 max-w-full max-h-full  "
+            className="mr-4 "
             src={imageUrl}
-            isBlurred
-            shadow="lg"
-            onLoad={toggleLoad}   
-            isZoomed
+            width={300} height={400} 
             radius="md"
-            
+            style={{
+              boxShadow: '0px 4px 8px rgba(0, 0, 0, 1)', 
+            }}
           />
-           <p className="font-bold text-white">{content}</p>
+              <div
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                width: '95%',
+                height: '20%', 
+                background: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6))', 
+              }}
+            />
+              <Title
+                order={3}
+                className="font-inter text-white leading-5 absolute bottom-0 left-0 right-0 p-4 text-xl"
+                size="lg"
+              >
+                {truncateTitle(content, 4)}
+              </Title>
+              <Avatar src={avatar_url} alt="it's me" className="absolute bottom-0 left-0 right-0 mb-12 ml-4" isBordered radius="full" size='sm'/>
+              <Text fz="sm" className="font-inter text-white leading-5 absolute bottom-0 left-0 right-0 mb-8 p-4 ml-10 ">{userFullName}</Text>
+
+            </div>
+
           <div className="absolute top-0 left-0 m-2 z-20 flex">
           {version !== "Unknown" && (
-              <div
+              <Badge 
                 className="text-sm font-medium text-white rounded p-1"
+                radius="lg"
                 style={{
-                  backgroundColor: "rgba(0, 0, 0, 0.50)",
-                  borderRadius: "4px",
+                  backgroundColor: "rgba(0, 0, 0, 0.32)",
                   marginRight: "8px",
+                  fontSize: "12px",
                 }}
               >
-                {version}
-              </div>
+              {version}
+              </Badge>
             )}
             {epochs !== "Unknown" && (
-              <div
+              <Badge
                 className="text-sm font-medium text-white rounded p-1"
+                radius="lg"
                 style={{
-                  backgroundColor: "rgba(0, 0, 0, 0.50)",
-                  borderRadius: "4px",
-                  marginRight: "8px", 
+                  backgroundColor: "rgba(0, 0, 0, 0.32)",
+                  marginRight: "8px",
+                  fontSize: "12px",
                 }}
               >
                 {version === "SVC" ? `${epochs} Steps` : `${epochs} Epochs`}
-              </div>
+              </Badge>
             )}
             {tag !== "Unknown" && (
-              <div
+              <Badge
                 className="text-sm font-medium text-white rounded p-1"
+                radius="lg"
                 style={{
-                  backgroundColor: "rgba(0, 0, 0, 0.50)",
-                  borderRadius: "4px",
+                  backgroundColor: "rgba(0, 0, 0, 0.32)",
+                  marginRight: "8px",
+                  fontSize: "12px",
                 }}
               >
                 {tag}
-            </div>
+            </Badge>
+            
           )}
+          
           </div>
-          <div className="absolute bottom-0 right-0 mb-1 flex flex-row items-end z-10">
-          {language === "English" && (
-            <div className="w-10 h-7 mb-6 mr-2" style={{
-              backgroundColor: "rgba(0, 0, 0, 0.80)",
-              borderRadius: "4px",
-              display: "flex",        // 
-              alignItems: "center",  
-              justifyContent: "center" 
-            }}>
-              <img 
-                src="https://i.imgur.com/iQWEY3Z.png" 
-                alt="English Icon"    
-                className="w-6 h-4"
-              />
-            </div>
-          )}
-          {language === "Spanish" && (
-            <div className="w-10 h-7 mb-6 mr-2" style={{
-              backgroundColor: "rgba(0, 0, 0, 0.80)",
-              borderRadius: "4px",
-              display: "flex",        
-              alignItems: "center",  
-              justifyContent: "center" 
-            }}>
-              <img 
-                src="https://imgs.search.brave.com/9GPsrsch4P2p5nj1Nz8Ma_eutXor-L54fZzajRNRgFQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxMi8w/NC8xMS8xNS8zMy9z/cGFpbi0yODUzMF82/NDAucG5n" 
-                alt="Spanish Icon"    
-                className="w-6 h-4"
-              />
-            </div>
-          )}
-          {language === "Other" && (
-            <div className="w-10 h-7 mb-6 mr-2" style={{
-              backgroundColor: "rgba(0, 0, 0, 0.80)",
-              borderRadius: "4px",
-              display: "flex",        
-              alignItems: "center",  
-              justifyContent: "center" 
-            }}>
-              <img 
-                src="https://imgs.search.brave.com/wpKcSvJlyO-gcF3juyVUK2v9w0XbI8IDATawRMAvl1Y/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90by1ncmF0aXMv/cmVzdW1lbi1zdXBl/cmZpY2llLXRleHR1/cmFzLW11cm8tcGll/ZHJhLWhvcm1pZ29u/LWJsYW5jb183NDE5/MC04MTg5LmpwZz9z/aXplPTYyNiZleHQ9/anBn" 
-                alt="Other Icon"    
-                className="w-6 h-4"
-              />
-            </div>
-          )}
-          </div>
+          
         </div>
       </div>
     </div>
+    </Box>
+
   );
 }
 function setIsLoaded(arg0: boolean) {

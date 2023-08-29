@@ -10,6 +10,11 @@
     "gen:types": "npx supabase gen types typescript --project-id gdlmlxdyhtkvgrttobwk > ./app/types/database.ts"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/server": "^11.11.0",
+    "@mantine/core": "^6.0.19",
+    "@mantine/hooks": "^6.0.19",
+    "@mantine/next": "^6.0.19",
     "@nextui-org/button": "2.0.9",
     "@nextui-org/card": "^2.0.14",
     "@nextui-org/code": "2.0.7",
