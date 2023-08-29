@@ -1,6 +1,8 @@
 "use client"
 
-import { Card, CardHeader, CardBody, Image, Chip } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Image, Chip, Skeleton } from "@nextui-org/react";
+import React from "react";
+import { useState } from "react";
 
 export default function ModelCard({
   userFullName,
@@ -27,16 +29,19 @@ export default function ModelCard({
     year: "numeric",
     month: "short",
     day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
   });
+  const [isLoaded, setIsLoaded] = React.useState(false);
+
+  const toggleLoad = () => {
+    setIsLoaded(!isLoaded);
+  };
+
+
   console.log(content, language, epochs, version);
   return (
     <Card className="py-4">
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start rounded-s-lg">
         <p className="font-bold">{content}</p>
-        <small className="text-default-500">Created by {userFullName}</small>
         <small className="text-default-500">Uploaded at {formattedDate}</small>
       </CardHeader>
       <CardBody className="overflow-visible py-2">
@@ -46,6 +51,10 @@ export default function ModelCard({
             alt="Card background"
             className="object-cover rounded-xl w-100 h-80 rounded-s-lg"
             src={imageUrl}
+            isBlurred
+            shadow="lg"
+            onLoad={toggleLoad}   
+            isZoomed
           />
           {version !== "Unknown" && (
             <div
@@ -110,3 +119,7 @@ export default function ModelCard({
     </Card>
   );
 }
+function setIsLoaded(arg0: boolean) {
+  throw new Error("Function not implemented.");
+}
+

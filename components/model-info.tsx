@@ -120,6 +120,9 @@ function Modelinfo({ id }: ModelInfoProps) {
           height={600}
           src={data[0].image_url}
           className="hidden md:block w-800 h-600 relative mr-4"
+          classNames={{
+            blurredImg: "filter blur-xl"
+          }}
         />
     </div>
   </div>
