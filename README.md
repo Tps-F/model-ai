@@ -40,10 +40,14 @@ Contributions are welcome! If you have suggestions or improvements, fork the rep
 - [next-themes](https://github.com/pacocoursey/next-themes)
 - [Supabase](https://github.com/supabase/supabase)
 
+## Contributors
+[![Contributors][contributors-image]][contributors-url]
+
 ## License
 Licensed under the [MIT license](https://pitt.libguides.com/openlicensing/MIT).
 
 [contributors-shield]: https://img.shields.io/github/contributors/model-ai/model-ai.svg?style=for-the-badge
+[contributors-image]: https://contrib.rocks/image?repo=model-ai/model-ai
 [contributors-url]: https://github.com/model-ai/model-ai/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/model-ai/model-ai.svg?style=for-the-badge
 [forks-url]: https://github.com/model-ai/model-ai/network/members
@@ -55,3 +59,4 @@ Licensed under the [MIT license](https://pitt.libguides.com/openlicensing/MIT).
 [license-url]: https://github.com/model-ai/model-ai/blob/master/LICENSE
 [discord-shield]: https://img.shields.io/discord/1144708590637170688?style=for-the-badge
 [discord-url]: https://discord.gg/hhMV8Zhbcs
+
