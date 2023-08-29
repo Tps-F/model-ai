@@ -28,6 +28,7 @@ export default async function HomePage() {
 			language,
 			image_url: imageUrl,
 			created_at: created_at,
+			tag
 		  } = post;
 		  const {
 			full_name: userFullName,
@@ -47,6 +48,7 @@ export default async function HomePage() {
 				epochs={epochs}
 				language={language}
 				created_at={created_at}
+				tag={tag}
 				/>
 			</Link>
 		  );

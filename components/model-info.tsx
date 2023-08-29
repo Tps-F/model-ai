@@ -83,6 +83,11 @@ function Modelinfo({ id }: ModelInfoProps) {
         <p>Technology: {data[0]?.version}</p>
         <p>Epochs: {data[0].epochs}</p>
         <p>Language: {data[0].language}</p>
+        <p>Uploaded at {new Date(data[0].created_at).toLocaleString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })}</p>
       </CardBody>
       <Button 
       color="primary" 

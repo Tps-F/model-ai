@@ -1,8 +1,7 @@
 "use client"
 
-import { Card, CardHeader, CardBody, Image, Chip, Skeleton } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 import React from "react";
-import { useState } from "react";
 
 export default function ModelCard({
   userFullName,
@@ -14,6 +13,7 @@ export default function ModelCard({
   epochs,
   version,
   created_at,
+  tag
 }: {
   userFullName: string;
   imageUrl: string;
@@ -24,6 +24,7 @@ export default function ModelCard({
   epochs: string;
   version: string;
   created_at: string;
+  tag: string
 }) {
   const formattedDate = new Date(created_at).toLocaleString("en-US", {
     year: "numeric",
@@ -52,28 +53,43 @@ export default function ModelCard({
             onLoad={toggleLoad}   
             isZoomed
           />
+          <div className="absolute top-0 left-0 m-2 z-20 flex">
           {version !== "Unknown" && (
-            <div
-              className="absolute top-0 left-0 m-2 z-20 text-sm font-medium text-white rounded p-1"
-              style={{
-                backgroundColor: "rgba(0, 0, 0, 0.50)",
-                borderRadius: "4px", 
-              }}
-            >
-              {version}
+              <div
+                className="text-sm font-medium text-white rounded p-1"
+                style={{
+                  backgroundColor: "rgba(0, 0, 0, 0.50)",
+                  borderRadius: "4px",
+                  marginRight: "8px",
+                }}
+              >
+                {version}
+              </div>
+            )}
+            {epochs !== "Unknown" && (
+              <div
+                className="text-sm font-medium text-white rounded p-1"
+                style={{
+                  backgroundColor: "rgba(0, 0, 0, 0.50)",
+                  borderRadius: "4px",
+                  marginRight: "8px", 
+                }}
+              >
+                {version === "SVC" ? `${epochs} Steps` : `${epochs} Epochs`}
+              </div>
+            )}
+            {tag !== "Unknown" && (
+              <div
+                className="text-sm font-medium text-white rounded p-1"
+                style={{
+                  backgroundColor: "rgba(0, 0, 0, 0.50)",
+                  borderRadius: "4px",
+                }}
+              >
+                {tag}
             </div>
           )}
-          {epochs !== "Unknown" && (
-            <div
-              className="absolute top-0 left-0 m-2 z-20 text-sm font-medium text-white rounded p-1 ml-20"
-              style={{
-                backgroundColor: "rgba(0, 0, 0, 0.50)",
-                borderRadius: "4px", 
-              }}
-            >
-              {version === "SVC" ? `${epochs} Steps` : `${epochs} Epochs`}
-            </div>
-          )}
+          </div>
           <div className="absolute bottom-0 right-0 mb-1 flex flex-row items-end z-10">
           {language === "English" && (
             <div className="w-10 h-7 mr-2" style={{
@@ -94,7 +110,7 @@ export default function ModelCard({
             <div className="w-10 h-7 mr-2" style={{
               backgroundColor: "rgba(0, 0, 0, 0.80)",
               borderRadius: "4px",
-              display: "flex",        // 
+              display: "flex",        
               alignItems: "center",  
               justifyContent: "center" 
             }}>
@@ -109,7 +125,7 @@ export default function ModelCard({
             <div className="w-10 h-7 mr-2" style={{
               backgroundColor: "rgba(0, 0, 0, 0.80)",
               borderRadius: "4px",
-              display: "flex",        // 
+              display: "flex",        
               alignItems: "center",  
               justifyContent: "center" 
             }}>
