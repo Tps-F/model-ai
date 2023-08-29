@@ -17,13 +17,7 @@ module.exports = {
       themes: {
         dark: {
           colors: {
-            background: "#141517", 
-            foreground: "#ECEDEE", 
-            primary: {
-              //... 50 to 900
-              foreground: "#FFFFFF",
-              DEFAULT: "#006FEE",
-            },
+            background: "rgb(10 10 10)",
           },
         },
       },

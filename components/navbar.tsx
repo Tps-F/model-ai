@@ -29,17 +29,35 @@ import { Session } from "inspector";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Database } from "@/app/types/database";
-import { Key } from "react";
+import { Key, useEffect } from "react";
+import NavbarAvatar from "./navbar-avatar";
 
 
 
 export async function Navbar() {
 	const supabase = createServerComponentClient<Database>({ cookies });
 	const { data: { session } } = await supabase.auth.getSession();
+	const userId = session?.user?.id;
+	let avatarUrl = ''; 
+	let userFullName = ''; 
 
+  if (userId) {
+    const { data: userData, error } = await supabase
+      .from('users') 
+      .select('avatar_url, full_name')
+      .eq('id', userId)
+      .single();
+
+    if (!error) {
+      avatarUrl = userData?.avatar_url || ''; 
+	  userFullName = userData?.full_name || ''; 
+	  console.log(error);
+    }
+  }
 
 	const searchInput = (
 		<Input
+		style={{ width: "500px", margin: "0 auto", display: "block", }}
 			aria-label="Search"
 			classNames={{
 				inputWrapper: "bg-default-100",
@@ -86,15 +104,10 @@ export async function Navbar() {
 				className="hidden sm:flex basis-1/5 sm:basis-full"
 				justify="end"
 			>
-				<NavbarItem className="hidden sm:flex gap-2">
-					<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
-						<DiscordIcon className="text-default-500" />
-					</Link>
-					<ThemeSwitch />
-				</NavbarItem>
 				<NavbarItem className="hidden lg:flex	">{searchInput}</NavbarItem>
 				<NavbarItem className="hidden md:flex">
 					<UploadModel session={session}/>
+					{userId && <NavbarAvatar avatar_url={avatarUrl} id={userId} userFullName={userFullName} />}
 					<AuthButtonServer />
 					<Button
             			isExternal
@@ -144,6 +157,10 @@ function filterVideos(videos: any, searchText: any) {
 }
 
 function getUsers(): { data: any; } | PromiseLike<{ data: any; }> {
+	throw new Error("Function not implemented.");
+}
+
+function setUser(arg0: { avatar_url: string; full_name: string | null; id: string; }) {
 	throw new Error("Function not implemented.");
 }
 
