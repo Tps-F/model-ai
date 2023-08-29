@@ -39,17 +39,13 @@ export default function ModelCard({
 
   console.log(content, language, epochs, version);
   return (
-    <Card className="py-4">
-      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start rounded-s-lg">
-        <p className="font-bold">{content}</p>
-        <small className="text-default-500">Uploaded at {formattedDate}</small>
-      </CardHeader>
-      <CardBody className="overflow-visible py-2">
+    <div className="py-4">
+      <div className="overflow-visible py-2">
         <div className="w-100 h-100 relative">
           <Image
             loading="eager"
             alt="Card background"
-            className="object-cover rounded-xl w-100 h-80 rounded-s-lg"
+            className="object-cover w-100 h-80"
             src={imageUrl}
             isBlurred
             shadow="lg"
@@ -65,6 +61,17 @@ export default function ModelCard({
               }}
             >
               {version}
+            </div>
+          )}
+          {epochs !== "Unknown" && (
+            <div
+              className="absolute top-0 left-0 m-2 z-20 text-sm font-medium text-white rounded p-1 ml-20"
+              style={{
+                backgroundColor: "rgba(0, 0, 0, 0.50)",
+                borderRadius: "4px", 
+              }}
+            >
+              {version === "SVC" ? `${epochs} Steps` : `${epochs} Epochs`}
             </div>
           )}
           <div className="absolute bottom-0 right-0 mb-1 flex flex-row items-end z-10">
@@ -115,8 +122,8 @@ export default function ModelCard({
           )}
           </div>
         </div>
-      </CardBody>
-    </Card>
+      </div>
+    </div>
   );
 }
 function setIsLoaded(arg0: boolean) {
