@@ -29,14 +29,15 @@ import { Session } from "inspector";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Database } from "@/app/types/database";
-import { Avatar } from "@nextui-org/react";
+import { Key } from "react";
 
 
 
 export async function Navbar() {
 	const supabase = createServerComponentClient<Database>({ cookies });
 	const { data: { session } } = await supabase.auth.getSession();
-	
+
+
 	const searchInput = (
 		<Input
 			aria-label="Search"
@@ -94,12 +95,6 @@ export async function Navbar() {
 				<NavbarItem className="hidden lg:flex	">{searchInput}</NavbarItem>
 				<NavbarItem className="hidden md:flex">
 					<UploadModel session={session}/>
-
-                {/* 
-				Auth button error on deploy: 
-				Type error: 'AuthButtonServer' cannot be used as a JSX component.
- 				Its return type 'Promise<Element>' is not a valid JSX element.
-    			Type 'Promise<Element>' is missing the following properties from type 'ReactElement<any, any>': type, props, key */}
 					<AuthButtonServer />
 					<Button
             			isExternal
@@ -145,6 +140,10 @@ export async function Navbar() {
 	);
 };
 function filterVideos(videos: any, searchText: any) {
+	throw new Error("Function not implemented.");
+}
+
+function getUsers(): { data: any; } | PromiseLike<{ data: any; }> {
 	throw new Error("Function not implemented.");
 }
 
