@@ -27,6 +27,7 @@ import { cookies } from "next/headers";
 import { Database } from "@/app/types/database";
 import { Key, useEffect } from "react";
 import NavbarAvatar from "./navbar-avatar";
+import { Chip } from "@nextui-org/react";
 
 export async function Navbar() {
   const supabase = createServerComponentClient<Database>({ cookies });
@@ -53,7 +54,7 @@ export async function Navbar() {
 
   const searchInput = (
     <Input
-      style={{ width: "500px", margin: "0 auto", display: "block" }}
+      style={{ width: "100%", maxWidth: "500px" }}
       aria-label="Search"
       classNames={{
         inputWrapper: "bg-default-100",
@@ -66,10 +67,10 @@ export async function Navbar() {
       }
       type="search"
     />
-  );
+);
 
   return (
-    <NextUINavbar maxWidth="xl" position="sticky" shouldHideOnScroll>
+    <NextUINavbar maxWidth="2xl" position="sticky" shouldHideOnScroll>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -93,12 +94,15 @@ export async function Navbar() {
           ))}
         </ul>
       </NavbarContent>
-
+      <NavbarItem className="hidden lg:flex">
+          <div style={{ display: "flex", justifyContent: "center", textAlign: "center" }} className="w-[40rem]">
+            {searchInput}
+          </div>
+        </NavbarItem>
       <NavbarContent
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
-        <NavbarItem className="hidden lg:flex	">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
           <UploadModel session={session} />
           {userId && (
@@ -109,16 +113,6 @@ export async function Navbar() {
             />
           )}
           <AuthButtonServer />
-          <Button
-            isExternal
-            as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
-            startContent={<HeartFilledIcon className="text-danger" />}
-            variant="flat"
-          >
-            Donate
-          </Button>
         </NavbarItem>
       </NavbarContent>
 
@@ -128,7 +122,7 @@ export async function Navbar() {
       </NavbarContent>
 
       <NavbarMenu>
-        {searchInput}
+        {searchInput }
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
@@ -145,6 +139,7 @@ export async function Navbar() {
               >
                 {item.label}
               </Link>
+              
             </NavbarMenuItem>
           ))}
         </div>

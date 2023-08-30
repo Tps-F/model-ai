@@ -5,10 +5,6 @@ export const siteConfig = {
   description: "AI Models database",
   navItems: [
     {
-      label: "Home",
-      href: "/",
-    },
-    {
       label: "About",
       href: "/about",
     },

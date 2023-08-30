@@ -1,6 +1,7 @@
 "use client";
 import {
   Avatar,
+  Chip,
   Dropdown,
   DropdownItem,
   DropdownMenu,
@@ -25,14 +26,14 @@ export default function NavbarAvatar({
   };
 
   return (
+  <div>
     <Dropdown>
       <DropdownTrigger>
         <Avatar
           src={avatar_url}
           isBordered
-          color="primary"
-          radius="sm"
           className="mr-4"
+          
         />
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
@@ -44,5 +45,6 @@ export default function NavbarAvatar({
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
+    </div>
   );
 }

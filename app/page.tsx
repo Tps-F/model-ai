@@ -1,11 +1,7 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { title } from "@/components/primitives";
 import ModelCard from "@/components/model-card";
 import { Database } from "./types/database";
-import { ComposeModel } from "@/components/compose-model";
-import { Post } from "./types/posts";
-import { UploadModel } from "@/components/upload-model";
 import { Link } from "@nextui-org/link";
 
 export default async function HomePage() {
@@ -18,7 +14,8 @@ export default async function HomePage() {
     .select("*, user:users(*)");
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-4 gap-4 py-8 md:py-10">
+    
+<section className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 gap-5 py-8 md:py-10">
       {posts?.map((post: any) => {
         const {
           id,
@@ -37,19 +34,21 @@ export default async function HomePage() {
 
         return (
           <Link href={`/${id}`} key={id}>
-            <ModelCard
-              content={content}
-              userFullName={userFullName}
-              imageUrl={imageUrl}
-              full_name={userFullName}
-              id={id}
-              version={version}
-              epochs={epochs}
-              language={language}
-              created_at={created_at}
-              tag={tag}
-              avatar_url={avatarUrl}
-            />
+            <div  className="flex items-center mx-auto"> 
+              <ModelCard
+                content={content}
+                userFullName={userFullName}
+                imageUrl={imageUrl}
+                full_name={userFullName}
+                id={id}
+                version={version}
+                epochs={epochs}
+                language={language}
+                created_at={created_at}
+                tag={tag}
+                avatar_url={avatarUrl}
+              />
+            </div>
           </Link>
         );
       })}

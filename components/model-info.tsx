@@ -103,7 +103,7 @@ function Modelinfo({ id }: ModelInfoProps) {
   const modelUrl = data[0]?.model_url || "";
   const audio_url = data[0]?.audio_url || "Unknown";
   return (
-    <div className="flex">
+    <div className="flex items-center justify-center">
       <Card className="max-w-[400px] mr-16 h-[100%] w-[100%] ">
         <CardHeader className="flex gap-8 justify-center text-xl">
           <p>{data[0].content}</p>
@@ -115,6 +115,7 @@ function Modelinfo({ id }: ModelInfoProps) {
           <p>Technology: {data[0]?.version}</p>
           <p>Epochs: {data[0].epochs}</p>
           <p>Language: {data[0].language}</p>
+          <p>Tag: {data[0].tag}</p>
           <p>
             Uploaded at{" "}
             {new Date(data[0].created_at).toLocaleString("en-US", {
