@@ -20,8 +20,13 @@ const ModelLanguage: React.FC<ModelLanguageProps> = ({
         isRequired
         name="language"
       >
-        <Radio value="Spanish">Spanish</Radio>
         <Radio value="English">English</Radio>
+        <Radio value="Spanish">Spanish</Radio>
+        <Radio value="Portuguese">Portuguese</Radio>
+        <Radio value="French">French</Radio>
+        <Radio value="Japanese">Japanese</Radio>
+        <Radio value="Korean">Korean</Radio>
+        <Radio value="Turkish">Turkish</Radio>
         <Radio value="Other">Other</Radio>
       </RadioGroup>
     </div>

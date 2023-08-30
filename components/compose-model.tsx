@@ -19,7 +19,7 @@ import VersionModel from "./compose-version-model";
 export function ComposeModel({}) {
   const formRef = useRef<HTMLFormElement>(null);
   const [value, setValue] = React.useState(new Set([]));
-  const [selectedLanguage, setSelectedLanguage] = useState("Spanish");
+  const [selectedLanguage, setSelectedLanguage] = useState("English");
 
   const handleAddPost = async () => {
     const formData = new FormData();
