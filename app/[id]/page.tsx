@@ -6,9 +6,8 @@ interface ModelProps {
 }
 
 const model: FC<ModelProps> = ({ params }) => {
-  // Destructure the props
   return (
-    <div>
+    <div className="flex justify-center items-center h-screen ">
       <Modelinfo id={params.id} />
     </div>
   );

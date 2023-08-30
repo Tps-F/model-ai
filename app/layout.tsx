@@ -36,6 +36,7 @@ export default function RootLayout({
           "flex flex-col min-h-screen bg-background font-inter antialiased",
           fontInter.variable,
         )}
+        style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="flex flex-col h-screen">
