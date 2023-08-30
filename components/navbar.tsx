@@ -37,17 +37,19 @@ export async function Navbar() {
   const userId = session?.user?.id;
   let avatarUrl = "";
   let userFullName = "";
+  let userRole = "";
 
   if (userId) {
     const { data: userData, error } = await supabase
       .from("users")
-      .select("avatar_url, full_name")
+      .select("avatar_url, full_name, role")
       .eq("id", userId)
       .single();
 
     if (!error) {
       avatarUrl = userData?.avatar_url || "";
       userFullName = userData?.full_name || "";
+      userRole = userData?.role || "";
       console.log(error);
     }
   }
@@ -110,6 +112,7 @@ export async function Navbar() {
               avatar_url={avatarUrl}
               id={userId}
               userFullName={userFullName}
+              userRole={userRole}
             />
           )}
           <AuthButtonServer />
