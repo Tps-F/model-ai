@@ -28,7 +28,6 @@ yarn-error.log*
 psw.txt
 .env*.local
 .env
-.env.example
 .env.local
 .env.staging
 # vercel
