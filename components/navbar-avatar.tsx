@@ -36,7 +36,7 @@ export default function NavbarAvatar({
     window.location.href = `/discord`;
   };
   const handleProfileClick2 = () => {
-    window.location.href = `/discord`;
+    window.location.href = `/bug`;
   };
   const handleProfileClick3 = () => {
     window.location.href = `/upload`;
@@ -83,7 +83,7 @@ export default function NavbarAvatar({
     <Chip size="lg" className="mr-3">{userFullName}</Chip>
       <Dropdown>
         <DropdownTrigger>
-          <Avatar src={avatar_url} isBordered />
+          <Avatar src={avatar_url} isBordered/>
         </DropdownTrigger>
         <DropdownMenu aria-label="Static Actions">
           {dropdownItems}
