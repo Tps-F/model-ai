@@ -2,8 +2,6 @@
 
 import { Box, Title, Image, Badge, Text } from "@mantine/core";
 import { Avatar } from "@nextui-org/react";
-import { Content } from "next/font/google";
-import router from "next/router";
 import React, { useState } from "react";
 
 export default function ModelCard({
@@ -61,6 +59,7 @@ export default function ModelCard({
                 width={300}
                 height={400}
                 radius="md"
+                alt="Picture of the model"
                 style={{
                   boxShadow: "0px 4px 8px rgba(0, 0, 0, 1)",
                 }}

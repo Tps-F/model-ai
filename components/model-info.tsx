@@ -83,7 +83,7 @@ function Modelinfo({ id }: ModelInfoProps) {
           Oops! The page you are looking for was not found
         </h1>
         <p className="mt-4 text-lg text-gray-600">
-          It seems like the model you're looking for does not exist.
+          It seems like the model you re looking for does not exist.
         </p>
         <a href="/" className="mt-4 text-blue-500 hover:underline">
           Go back to the homepage
@@ -167,6 +167,7 @@ function Modelinfo({ id }: ModelInfoProps) {
           isBlurred
           width={800}
           height={600}
+          alt="Picture of the model"
           src={data[0].image_url}
           className="hidden md:block w-800 h-600 relative mr-4"
           classNames={{
