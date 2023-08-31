@@ -27,15 +27,11 @@ export function AuthButton({ session }: { session: Session | null }) {
 
   return (
     <header className="mr-4">
-      {session === null ? (
-        <Button color="primary" variant="shadow" onClick={handleSignIn}>
-          Login
-        </Button>
-      ) : (
-        <Button color="danger" variant="bordered" onClick={handleSignOut}>
-          Logout
-        </Button>
-      )}
+    {session === null && (
+      <Button color="primary" variant="shadow" onClick={handleSignIn}>
+        Login
+      </Button>
+    )}
     </header>
   );
 }

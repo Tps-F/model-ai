@@ -106,7 +106,6 @@ export async function Navbar() {
         justify="end"
       >
         <NavbarItem className="hidden md:flex">
-          <UploadModel session={session} />
           {userId && (
             <NavbarAvatar
               avatar_url={avatarUrl}
