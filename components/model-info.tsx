@@ -22,8 +22,8 @@ import {
   Spinner,
   User,
 } from "@nextui-org/react";
-import { title } from "./primitives";
 import ModelAudio from "./model-audio-card";
+import { IconHeadphonesFilled } from '@tabler/icons-react';
 
 const supabase = createClientComponentClient<Database>();
 
@@ -135,12 +135,17 @@ function Modelinfo({ id }: ModelInfoProps) {
           Download
         </Button>
         <Divider />
-        {audio_url !== "Unknown" && (
-          <ModelAudio
-            image_url={data[0].image_url}
-            audio_url={data[0].audio_url}
-          />
-        )}
+        {audio_url === "Unknown" ? (
+          <div className="flex flex-col items-center justify-center">
+          <p className="m-4">No audio available</p>
+          <IconHeadphonesFilled size={48} className="m-4"/> 
+          </div>
+      ) : (
+      <ModelAudio
+        image_url={data[0].image_url}
+        audio_url={data[0].audio_url}
+      />
+    )}
         <Divider />
         <CardFooter>
           <User

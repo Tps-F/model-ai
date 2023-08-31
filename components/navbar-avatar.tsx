@@ -80,10 +80,20 @@ export default function NavbarAvatar({
 
   return (
     <div className="flex items-center">
-    <Chip size="lg" className="mr-3">{userFullName}</Chip>
       <Dropdown>
         <DropdownTrigger>
-          <Avatar src={avatar_url} isBordered/>
+        <Chip
+        variant="flat"
+        size="lg"
+        avatar={
+          <Avatar
+            name="JW"
+            src={avatar_url}
+          />
+        }
+      >
+        {userFullName}
+      </Chip>
         </DropdownTrigger>
         <DropdownMenu aria-label="Static Actions">
           {dropdownItems}
