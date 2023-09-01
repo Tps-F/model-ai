@@ -36,7 +36,7 @@ export default function NavbarAvatar({
     window.location.href = `/discord`;
   };
   const handleProfileClick2 = () => {
-    window.location.href = `/bug`;
+    window.location.href = `https://github.com/model-ai/model-ai/issues/new`;
   };
   const handleProfileClick3 = () => {
     window.location.href = `/upload`;
@@ -62,7 +62,7 @@ export default function NavbarAvatar({
     <DropdownItem key="discord" onClick={handleProfileClick1} startContent={<IconBrandDiscord className={iconClasses} />}>
       Discord
     </DropdownItem>,
-    <DropdownItem key="bug" onClick={handleProfileClick2} isDisabled startContent={<IconBug className={iconClasses} />}>
+    <DropdownItem key="bug" onClick={handleProfileClick2} startContent={<IconBug className={iconClasses} />}>
     Report a bug
   </DropdownItem>,
       <DropdownItem key="logout" onClick={handleSignOut} className="text-danger" color="danger" startContent={<IconLogout className={iconClasses} />}>
