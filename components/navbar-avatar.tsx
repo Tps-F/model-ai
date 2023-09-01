@@ -62,7 +62,7 @@ export default function NavbarAvatar({
     <DropdownItem key="discord" onClick={handleProfileClick1} startContent={<IconBrandDiscord className={iconClasses} />}>
       Discord
     </DropdownItem>,
-    <DropdownItem key="bug" onClick={handleProfileClick2} startContent={<IconBug className={iconClasses} />}>
+    <DropdownItem key="bug" onClick={handleProfileClick2} isDisabled startContent={<IconBug className={iconClasses} />}>
     Report a bug
   </DropdownItem>,
       <DropdownItem key="logout" onClick={handleSignOut} className="text-danger" color="danger" startContent={<IconLogout className={iconClasses} />}>
