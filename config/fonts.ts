@@ -1,6 +1,7 @@
-import { Inter } from "next/font/google";
-
-export const fontInter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+export const fontInter = {
+  fontFamily: 'Inter', 
+  fontWeight: 'normal', 
+  fontStyle: 'normal', 
+  src: `local('Inter'), url('/styles/Inter-VariableFont_slnt,wght.ttf') format('truetype')`, 
+  variable: '--font-inter', 
+};
