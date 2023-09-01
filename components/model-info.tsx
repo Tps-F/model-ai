@@ -20,6 +20,7 @@ import {
   Link,
   Spacer,
   Spinner,
+  Textarea,
   User,
 } from "@nextui-org/react";
 import ModelAudio from "./model-audio-card";
@@ -103,8 +104,9 @@ function Modelinfo({ id }: ModelInfoProps) {
   const modelUrl = data[0]?.model_url || "";
   const audio_url = data[0]?.audio_url || "Unknown";
   return (
+    <div>
     <div className="flex items-center justify-center">
-      <Card className="max-w-[400px] mr-16 h-[100%] w-[100%] ">
+      <Card className="max-w-[400px] mr-16 mb-20 h-[100%] w-[100%] ">
         <CardHeader className="flex gap-8 justify-center text-xl">
           <p>{data[0].content}</p>
         </CardHeader>
@@ -169,14 +171,30 @@ function Modelinfo({ id }: ModelInfoProps) {
           height={600}
           alt="Picture of the model"
           src={data[0].image_url}
-          className="hidden md:block w-800 h-600 relative mr-4"
+          className="hidden md:block w-800 h-600 relative mr-4 max-w-full max-h-[400px]"
           classNames={{
             blurredImg: "filter blur-xl",
           }}
         />
-      </div>
     </div>
-  );
+    </div>
+    <div className="flex flex-col flex-1 ">
+  <div className="flex-1"></div>
+  <Card>
+    <CardBody>
+      <Textarea
+        labelPlacement="outside"
+        placeholder="Here you can comment on your opinion of the model"
+        className="mx-auto max-w-full max-h-full text-center"
+        variant="bordered"
+      />
+    </CardBody>
+    
+  </Card>
+</div>
+</div>
+    
+  );  
 }
 
 export default Modelinfo;
