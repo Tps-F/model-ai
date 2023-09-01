@@ -15,7 +15,7 @@ export function AuthButton({ session }: { session: Session | null }) {
     await supabase.auth.signInWithOAuth({
       provider: "discord",
       options: {
-        redirectTo: "https://model-ai.vercel.app/auth/callback",
+        redirectTo: "https://modelai.net/auth/callback",
       },
     });
   };
