@@ -36,6 +36,7 @@ function Modelinfo({ id }: ModelInfoProps) {
   const [data, setData] = useState<any[] | null>(null);
   const [user, setUser] = useState<any | null>(null);
   const [error, setError] = useState<PostgrestError | null>(null);
+  const [comments, setComments] = useState<string | null>(null)
 
   const handleDownloadClick = () => {
     if (data) {
@@ -53,27 +54,28 @@ function Modelinfo({ id }: ModelInfoProps) {
         .from("models")
         .select("*")
         .eq("id", id);
-
+  
       if (error) {
         setError(error);
         return;
       }
-
+  
       setData(data);
-
+  
       const { data: userData, error: userError } = await supabase
         .from("users")
         .select("avatar_url, full_name, id")
         .eq("id", data[0]?.user_id);
-
+  
       if (userError) {
         setError(userError);
         return;
       }
-
+  
       setUser(userData[0]);
     }
-
+    
+  
     fetchData();
   }, [id]);
 
@@ -100,7 +102,6 @@ function Modelinfo({ id }: ModelInfoProps) {
       </div>
     );
   }
-
   const modelUrl = data[0]?.model_url || "";
   const audio_url = data[0]?.audio_url || "Unknown";
   return (
@@ -194,7 +195,7 @@ function Modelinfo({ id }: ModelInfoProps) {
 </div>
 <Card className="my-8">
       <CardBody>
-        <p>Comment 1</p>
+        <p>{comments || "Be the first to comment!"}</p>
       </CardBody>
     </Card>
 </div>
