@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "ModelAI",
-  description: "AI Models database",
+  description: "ModelAI is an open-source platform dedicated to hosting artificially intelligent generated voices.",
   navItems: [
     {
       label: "About",

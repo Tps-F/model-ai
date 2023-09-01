@@ -5,6 +5,7 @@ import { fontInter } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import clsx from "clsx";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: {
@@ -30,7 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <Head>
+        <meta name="author" content="IA Hispano" />
+        <meta name="keywords" content="AI, IA, IA Hispano, ModelAI, RVC, SVC, Open Source" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <body
         className={clsx(
           "flex flex-col min-h-screen bg-background font-inter antialiased",

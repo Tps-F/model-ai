@@ -20,14 +20,12 @@ import clsx from "clsx";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { DiscordIcon, HeartFilledIcon, SearchIcon } from "@/components/icons";
 import { AuthButtonServer } from "./auth-button-server";
-import { UploadModel } from "./upload-model";
-import { Session } from "inspector";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Database } from "@/app/types/database";
 import { Key, useEffect } from "react";
 import NavbarAvatar from "./navbar-avatar";
-import { Chip } from "@nextui-org/react";
+import { IconCloudSearch } from '@tabler/icons-react';
 
 export async function Navbar() {
   const supabase = createServerComponentClient<Database>({ cookies });
@@ -72,7 +70,7 @@ export async function Navbar() {
 );
 
   return (
-    <NextUINavbar maxWidth="full" position="sticky" shouldHideOnScroll>
+    <NextUINavbar maxWidth="full" position="sticky" shouldHideOnScroll style={{ width: '100%' }}>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -119,7 +117,6 @@ export async function Navbar() {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
 
