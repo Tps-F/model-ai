@@ -83,6 +83,9 @@ export default function NavbarAvatar({
       <Dropdown>
         <DropdownTrigger>
         <Chip
+        style={{
+        cursor: 'pointer'
+        }}
         variant="flat"
         size="lg"
         avatar={
