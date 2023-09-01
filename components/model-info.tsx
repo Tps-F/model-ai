@@ -192,6 +192,11 @@ function Modelinfo({ id }: ModelInfoProps) {
     
   </Card>
 </div>
+<Card className="my-8">
+      <CardBody>
+        <p>Comment 1</p>
+      </CardBody>
+    </Card>
 </div>
     
   );  
