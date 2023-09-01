@@ -17,6 +17,12 @@ ModelAI is an open-source platform dedicated to hosting artificially intelligent
 npm install
 ```
 
+### Generate types
+
+```bash
+npm run gen:types
+```
+
 ### Run the development server
 
 ```bash
@@ -43,6 +49,8 @@ Contributions are welcome! If you have suggestions or improvements, fork the rep
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
 - [Supabase](https://github.com/supabase/supabase)
+- [Mantine](https://github.com/mantinedev/mantine)
+- 
 
 ## Contributors
 
