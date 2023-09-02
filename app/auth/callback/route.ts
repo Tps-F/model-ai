@@ -14,4 +14,6 @@ export async function GET(request: NextRequest) {
   }
 
   return NextResponse.redirect(requestUrl.origin);
+  console.log("Redirection URL:", requestUrl.origin);
+
 }
