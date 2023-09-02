@@ -18,7 +18,6 @@ export function AuthButton({ session }: { session: Session | null }) {
         redirectTo: "https://modelai.net/auth/callback",
       },
     });
-    router.refresh()
   };
 
   return (
