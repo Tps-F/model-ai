@@ -33,7 +33,7 @@ export default function NavbarAvatar({
   };
 
   const handleProfileClick1 = () => {
-    window.location.href = `/discord`;
+    window.open(`/discord`, '_blank');
   };
   const handleProfileClick2 = () => {
     window.location.href = `https://github.com/model-ai/model-ai/issues/new`;

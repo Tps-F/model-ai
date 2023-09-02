@@ -18,11 +18,7 @@ export function AuthButton({ session }: { session: Session | null }) {
         redirectTo: "https://modelai.net/auth/callback",
       },
     });
-  };
-
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    router.refresh();
+    router.refresh()
   };
 
   return (
