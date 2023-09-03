@@ -105,7 +105,7 @@ function Modelinfo({ id }: ModelInfoProps) {
   const modelUrl = data[0]?.model_url || "";
   const audio_url = data[0]?.audio_url || "Unknown";
   return (
-    <div>
+    <div className="mt-20">
     <div className="flex items-center justify-center">
       <Card className="max-w-[400px] mr-16 mb-20 h-[100%] w-[100%] ">
         <CardHeader className="flex gap-8 justify-center text-xl">
@@ -181,6 +181,7 @@ function Modelinfo({ id }: ModelInfoProps) {
     </div>
     <div className="flex flex-col flex-1 ">
   <div className="flex-1"></div>
+  
   <Card>
     <CardBody>
       <Textarea
@@ -189,6 +190,14 @@ function Modelinfo({ id }: ModelInfoProps) {
         className="mx-auto max-w-full max-h-full text-center"
         variant="bordered"
       />
+
+      <Button
+              color="primary"
+              variant="shadow"
+              className="w-10 h-10  flex place-self-center text-lg mt-4 ml-[70rem]"
+            >
+              Send
+            </Button>
     </CardBody>
     
   </Card>
