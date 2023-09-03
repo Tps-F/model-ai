@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 const RedirectPage = () => {
   useEffect(() => {
     const redirectTimeout = setTimeout(() => {
-      window.location.href = "https://discord.gg/iahispano";
+      window.location.href = "https://discord.gg/5TMBYHUJNQ";
     });
 
     return () => clearTimeout(redirectTimeout);

@@ -20,7 +20,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    discord: "https://discord.gg/iahispano",
+    discord: "https://discord.gg/5TMBYHUJNQ",
     sponsor: "https://paypal.me/iahispano",
   },
 };
