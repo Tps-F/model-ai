@@ -50,6 +50,7 @@ Contributions are welcome! If you have suggestions or improvements, fork the rep
 - [next-themes](https://github.com/pacocoursey/next-themes)
 - [Supabase](https://github.com/supabase/supabase)
 - [Mantine](https://github.com/mantinedev/mantine)
+- [Tabler Icons](https://github.com/tabler/tabler-icons)
 
 ## Contributors
 
