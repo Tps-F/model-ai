@@ -16,6 +16,10 @@ import {
   CardHeader,
   Chip,
   Divider,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
   Image,
   Link,
   Spacer,
@@ -24,7 +28,7 @@ import {
   User,
 } from "@nextui-org/react";
 import ModelAudio from "./model-audio-card";
-import { IconHeadphonesFilled } from '@tabler/icons-react';
+import { IconHeadphonesFilled, IconDotsVertical, IconFlag2Filled } from '@tabler/icons-react';
 
 const supabase = createClientComponentClient<Database>();
 
@@ -104,12 +108,24 @@ function Modelinfo({ id }: ModelInfoProps) {
   }
   const modelUrl = data[0]?.model_url || "";
   const audio_url = data[0]?.audio_url || "Unknown";
+  const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
+
   return (
     <div className="mt-20">
     <div className="flex items-center justify-center">
       <Card className="max-w-[400px] mr-16 mb-20 h-[100%] w-[100%] ">
         <CardHeader className="flex gap-8 justify-center text-xl">
           <p>{data[0].content}</p>
+          <Dropdown>
+          <DropdownTrigger className="hover:cursor-pointer">
+          <IconDotsVertical className="ml-auto"/>
+          </DropdownTrigger>
+          <DropdownMenu aria-label="Static Actions">
+            <DropdownItem key="delete" className="text-danger" color="danger" startContent={<IconFlag2Filled className={iconClasses} />}>
+              Report
+            </DropdownItem>
+        </DropdownMenu>
+        </Dropdown>
         </CardHeader>
         <Divider />
         <CardBody>
