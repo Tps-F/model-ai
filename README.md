@@ -12,6 +12,7 @@ ModelAI is an open-source platform dedicated to hosting artificially intelligent
 ## How to Use
 
 ### Install dependencies
+## You need the ENV KEYS to make the code work locally!
 
 ```bash
 npm install
