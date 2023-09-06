@@ -54,7 +54,7 @@ export async function Navbar() {
 
   const searchInput = (
     <Input
-      style={{ width: "100%", maxWidth: "500px" }}
+      style={{ width: "100%", maxWidth: "800px" }}
       aria-label="Search"
       classNames={{
         inputWrapper: "bg-default-100",
