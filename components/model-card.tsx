@@ -83,7 +83,7 @@ export default function ModelCard({
                 className="font-inter text-white leading-5 absolute bottom-0 left-0 right-0 p-4 text-xl"
                 size="lg"
               >
-                {truncateTitle(content, 4)}
+                {truncateTitle(content, 2)}
               </Title>
               <Avatar
                 src={avatar_url}
