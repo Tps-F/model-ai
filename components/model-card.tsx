@@ -53,16 +53,29 @@ const truncateTitle = (text: string, maxLetters: number) => {
         <div className="overflow-visible">
           <div className="w-100 h-120 relative object-fit">
             <div className="relative">
-              <Image
-                src={imageUrl}
-                width={300}
-                height={400}
-                radius="md"
-                alt="Picture of the model"
-                style={{
-                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 1)",
-                }}
-              />
+            {!imageUrl ? (
+            <Image
+              src="https://imgs.search.brave.com/neBrELOnsfK49yJraJ6s05kKhr38cFT0UIFls9VbHr4/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAzLzM0LzgzLzIy/LzM2MF9GXzMzNDgz/MjI1NV9JTXh2ellS/eWdqZDIwVmxTYUlB/RlpyUVdqb3pRSDZC/US5qcGc"
+              width={300}
+              height={400}
+              radius="md"
+              alt="Default Picture"
+              style={{
+                boxShadow: "0px 4px 8px rgba(0, 0, 0, 1)",
+              }}
+            />
+          ) : (
+            <Image
+              src={imageUrl}
+              width={300}
+              height={400}
+              radius="md"
+              alt="Picture of the model"
+              style={{
+                boxShadow: "0px 4px 8px rgba(0, 0, 0, 1)",
+              }}
+            />
+          )}
               <div
                 style={{
                   position: "absolute",
