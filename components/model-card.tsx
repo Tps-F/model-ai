@@ -46,7 +46,6 @@ const truncateTitle = (text: string, maxLetters: number) => {
   return text;
 };
 
-  console.log(content, language, epochs, version);
   return (
     <Box>
       <div className="mb-0">
