@@ -39,13 +39,12 @@ export default function ModelCard({
   const toggleLoad = () => {
     setIsLoaded(!isLoaded);
   };
-  const truncateTitle = (text: string, maxWords: number) => {
-    const words = text.split(" ");
-    if (words.length > maxWords) {
-      return words.slice(0, maxWords).join(" ") + "...";
-    }
-    return text;
-  };
+const truncateTitle = (text: string, maxLetters: number) => {
+  if (text.length > maxLetters) {
+    return text.slice(0, maxLetters) + "...";
+  }
+  return text;
+};
 
   console.log(content, language, epochs, version);
   return (
