@@ -83,7 +83,7 @@ export default function ModelCard({
                 className="font-inter text-white leading-5 absolute bottom-0 left-0 right-0 p-4 text-xl"
                 size="lg"
               >
-                {truncateTitle(content, 4)}
+                {truncateTitle(content, 12)}
               </Title>
               <Avatar
                 src={avatar_url}
@@ -100,7 +100,7 @@ export default function ModelCard({
             </div>
 
             <div className="absolute top-0 left-0 m-2 z-20 flex">
-              {version !== "Unknown" && (
+            {version === "Unknown" || version === "NULL" || version === "EMPTY" && (
                 <Badge
                   className="text-sm font-medium text-white rounded p-1"
                   radius="lg"
@@ -113,7 +113,7 @@ export default function ModelCard({
                   {version}
                 </Badge>
               )}
-              {epochs !== "Unknown" && (
+              {epochs === "Unknown" || epochs === "NULL" || epochs === "EMPTY" && (
                 <Badge
                   className="text-sm font-medium text-white rounded p-1"
                   radius="lg"
@@ -126,7 +126,7 @@ export default function ModelCard({
                   {version === "SVC" ? `${epochs} Steps` : `${epochs} Epochs`}
                 </Badge>
               )}
-              {tag !== "Unknown" && (
+              {tag === "Unknown" || tag === "NULL" || tag === "EMPTY" && (
                 <Badge
                   className="text-sm font-medium text-white rounded p-1"
                   radius="lg"
